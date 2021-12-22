@@ -32,7 +32,7 @@
 -spec(start_link() ->
     {ok, Pid :: pid()} | ignore | {error, Reason :: term()}).
 start_link() ->
-    gen_server:start_link({local, ?SERVER}, ?MODULE, [], []).
+    gen_server:start_link({global, ?SERVER}, ?MODULE, [], []).
 
 store(NodeName, Comment) ->
     gen_server:call({global,?MODULE},{store,NodeName,Comment}).
